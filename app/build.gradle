@@ -1,17 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 repositories {
     maven { url 'https://raw.githubusercontent.com/iProov/android/master/maven/' }
 }
 android {
     compileSdkVersion 33
-    namespace 'com.example.testing'
     buildToolsVersion '33'
 
     defaultConfig {
-        applicationId "com.example.testing"
+        applicationId "com.example.myapplication"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 1
