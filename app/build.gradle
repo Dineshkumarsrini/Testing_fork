@@ -2,34 +2,40 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
-
+repositories {
+    maven { url 'https://raw.githubusercontent.com/iProov/android/master/maven/' }
+}
 android {
-    namespace 'com.example.myapplication'
-    compileSdk 33
+    compileSdkVersion 33
+    namespace 'com.example.testing'
+    buildToolsVersion '33'
 
     defaultConfig {
-        applicationId "com.example.myapplication"
-        minSdk 24
-        targetSdk 33
+        applicationId "com.example.testing"
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
-        versionName "1.0"
+        versionName "3.7.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+
 }
 
 dependencies {
@@ -38,7 +44,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(path: ':AndroidSDKV11_testing:app')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
 }

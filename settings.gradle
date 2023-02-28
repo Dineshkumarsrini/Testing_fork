@@ -1,16 +1,5 @@
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-rootProject.name = "My Application"
+rootProject.name = "Testing_fork"
 include ':app'
+include ':AndroidSDKV11_testing:app'
+include ':AndroidSDKV11_testing:acuantfacecapture'
+include ':AndroidSDKV11_testing:acuantcamera'
